@@ -2,51 +2,52 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const ListRandomMeals = ({ allRandomMeals }) => {
-    // const parsedIngredients = Object.entries(allRandomMeals).reduce(
-    //     (ingredients, [key, value]) => {
-    //         console.log(value, ingredients)
-    //       if (key.includes("Measure") && value !== '') {
-    //         const keyReference = key.match(/\d+/)[0];
-    //         const ingredient = allRandomMeals[`strIngredient${keyReference}`]
-    //         ingredients.push(`${value} ${ingredient}`);
-    //       }
-    //       return ingredients;
-    //     },
-    //     []
-    //   );
+    const meal = allRandomMeals;
+    console.log(meal)
+    // get all ingredients clustered in one array
+    const parsedIngredients = Object.entries(meal).reduce(
+        (ingredients, [key, value]) => {
+            if (key.includes("Measure") && value !== "") {
+                const keyReference = key.match(/\d+/)[0];
+                const ingredient = meal[`strIngredient${keyReference}`];
+                ingredients.push(`${value} ${ingredient}`);
+            }
+            return ingredients;
+        },
+        []
+    );
 
-    // console.log(parsedIngredients)
-
-    // console.log(obj)
-
-    // const obj = {
-    //     id: 3,
-    //     area: "American",
-    //     category: "pizza",
-    //     ingredient1: "a",
-    //     ingredient2: "b",
-    //     ingredient3: "c",
-    //   };
+    const menu = {
+        name: meal.strArea,
+        image: meal.strMealThumb,
+        video: meal.strYoutube,
+        instruction: meal.strInstructions
+      };
       
-    // const parsedObject = {
-    //     // id: obj.id,
-    //     // area: obj.area,
-    //     // category: obj.category,
-    //     ingredients: parsedIngredients,
-    // };
-
-    // console.log(parsedObject.ingredients)
-    
+    const MenuInfo = {
+        menuName: menu.name,
+        menuImage: menu.image,
+        menuVideo: menu.video,
+        menuInstruction: menu.instruction,
+        ingredients: parsedIngredients
+    };    
     return (
         <div>
-            {/* {outputRandomMeals} */}
+            <p>{MenuInfo.menuName}</p>
+            <img src={MenuInfo.menuImage}/>
+            <video><source src={MenuInfo.menuVideo}></source></video>
+            {MenuInfo.ingredients.map((ingredients, i) => {
+                return (
+                    <p>{ingredients}</p>
+                )
+            })}
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-       allRandomMeals: state.getData.randomMeals
+        allRandomMeals: state.getData.randomMeals[0] || {}
     }
 }
 
