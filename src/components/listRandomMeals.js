@@ -2,20 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const ListRandomMeals = ({ allRandomMeals }) => {
-    const parsedIngredients = Object.entries(allRandomMeals).reduce(
-        (ingredients, [key, value]) => {
-            console.log(value, ingredients)
-          if (key.includes("Measure") && value !== '') {
-            const keyReference = key.match(/\d+/)[0];
-            const ingredient = allRandomMeals[`strIngredient${keyReference}`]
-            ingredients.push(`${value} ${ingredient}`);
-          }
-          return ingredients;
-        },
-        []
-      );
+    // const parsedIngredients = Object.entries(allRandomMeals).reduce(
+    //     (ingredients, [key, value]) => {
+    //         console.log(value, ingredients)
+    //       if (key.includes("Measure") && value !== '') {
+    //         const keyReference = key.match(/\d+/)[0];
+    //         const ingredient = allRandomMeals[`strIngredient${keyReference}`]
+    //         ingredients.push(`${value} ${ingredient}`);
+    //       }
+    //       return ingredients;
+    //     },
+    //     []
+    //   );
 
-    console.log(parsedIngredients)
+    // console.log(parsedIngredients)
 
     // console.log(obj)
 
