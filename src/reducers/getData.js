@@ -6,9 +6,11 @@ const initialState = {
 
 export const getMealsData = (state = initialState, action) => {
     switch (action.type) {
-        case "RANDOM_MEALS_DATA":
+        case "RANDOM_MEALS":
+            console.log('click')
             return {
-                ...state
+                ...state,
+                randomMeals: action.getMeals
             };
         default:
             return state;
