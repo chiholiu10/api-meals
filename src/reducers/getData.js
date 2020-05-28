@@ -8,15 +8,15 @@ const initialState = {
 export const getMealsData = (state = initialState, action) => {
     switch (action.type) {
         case "RANDOM_MEALS":
-            console.log('click')
             return {
                 ...state,
                 randomMeals: action.getMeals
             };
         case "SEARCH_MEALS": 
+            const searchButtons = action.searchButtons == null ? [] : action.searchButtons;
             return {
                 ...state,
-                allSearchButtons: action.searchButtons
+                allSearchButtons: searchButtons
             }
         case "SHOW_INGREDIENT": 
             return {
