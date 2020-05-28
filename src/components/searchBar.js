@@ -17,10 +17,13 @@ const SearchBar = () => {
     }
 
     useEffect(() => {
-        fetchSearchResuls()
+        fetchSearchResults()
     })
 
-    const fetchSearchResuls = (query) => {
+    const fetchSearchResults = (query) => {
+        if(query == null) {
+            query = "";
+        }
         const searchUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`;
 
         axios.get(searchUrl)
