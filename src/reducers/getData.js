@@ -2,6 +2,7 @@ import { types } from '../actions/index';
 
 const initialState = {
     randomMeals: [],
+    allSearchButtons: []
 };
 
 export const getMealsData = (state = initialState, action) => {
@@ -12,6 +13,16 @@ export const getMealsData = (state = initialState, action) => {
                 ...state,
                 randomMeals: action.getMeals
             };
+        case "SEARCH_MEALS": 
+            return {
+                ...state,
+                allSearchButtons: action.searchButtons
+            }
+        case "SHOW_INGREDIENT": 
+            return {
+                ...state,
+                currentIngredient: action.foldRecipe
+            }
         default:
             return state;
     }
