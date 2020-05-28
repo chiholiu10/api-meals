@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { generateSearchButtons } from '../actions/index';
@@ -7,15 +7,30 @@ import { connect } from 'react-redux';
 const SearchBar = () => {
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        fetchSearchResults()
+    })
+
     const getSearchValue = (e) => {
-        const searchResult = e.target.value;
-        axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchResult}`)
+        const searchResult = e.target.value.toLowerCase();
+        fetchSearchResults(searchResult);
+    }
+
+    useEffect(() => {
+        fetchSearchResuls()
+    })
+
+    const fetchSearchResuls = (query) => {
+        const searchUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`;
+
+        axios.get(searchUrl)
         .then((res) => {
-            dispatch(generateSearchButtons(res.data.meals));
+            dispatch(generateSearchButtons(res.data.meals))
         }).catch((err) => {
             console.log(err);
         })
     }
+    
     return (
         <div>
             SearchBar
