@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 const ListRandomMeals = ({ allRandomMeals }) => {
     const meal = allRandomMeals;
-    console.log(meal)
+    
     // get all ingredients clustered in one array
     const parsedIngredients = Object.entries(meal).reduce(
         (ingredients, [key, value]) => {
