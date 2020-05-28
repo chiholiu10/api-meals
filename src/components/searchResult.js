@@ -16,8 +16,6 @@ const SearchResult = ({ ingredientButtons }) => {
         )
     })
 
-    console.log(allButtons)
-
     return (
         <div>
             SearchResult
