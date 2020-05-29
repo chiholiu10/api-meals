@@ -2,10 +2,10 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { getRandomMeal } from '../actions/index';
-import { connect } from 'react-redux';
 
-const RandomMeals = ({ allRandomMeals }) => {
+const RandomMeals = () => {
     const dispatch = useDispatch();
+
     const getRandomMeals = () => {
         axios.get('https://www.themealdb.com/api/json/v1/1/random.php')
         .then((res) => {
@@ -21,10 +21,4 @@ const RandomMeals = ({ allRandomMeals }) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-       allRandomMeals: state.getData.randomMeals
-    }
-}
-
-export default connect(mapStateToProps, null)(RandomMeals);
+export default RandomMeals;
