@@ -2,16 +2,19 @@ import React from 'react';
 // import { useDispatch } from 'react-redux';
 import { openIngredient } from '../actions/index';
 import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const SearchResult = ({ ingredientButtons }) => {
+    const dispatch = useDispatch();
+
     const buttons = ingredientButtons;
     if(buttons == undefined) return;
 
     const allButtons = buttons.map((ingredientBtn, i) => {
-        if(ingredientBtn == null)  return
+        if(ingredientBtn == null) return
         return (
             <div key={i}>
-                <button onClick={() => openIngredient(ingredientBtn.strMeal)}>{ingredientBtn.strMeal}</button>
+                <button onClick={() => dispatch(openIngredient(ingredientBtn))}>{ingredientBtn.strMeal}</button>
             </div>
         )
     })
