@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const ListRandomMeals = ({ allRandomMeals }) => {
-    const meal = allRandomMeals;
-    
+const ListRandomMeals = ({ showResultMeal }) => {
+    const meal = showResultMeal;
+
     // get all ingredients clustered in one array
     const parsedIngredients = Object.entries(meal).reduce(
         (ingredients, [key, value]) => {
@@ -22,7 +22,7 @@ const ListRandomMeals = ({ allRandomMeals }) => {
         image: meal.strMealThumb,
         video: meal.strYoutube,
         instruction: meal.strInstructions
-      };
+    };
       
     const MenuInfo = {
         menuName: menu.name,
@@ -30,7 +30,8 @@ const ListRandomMeals = ({ allRandomMeals }) => {
         menuVideo: menu.video,
         menuInstruction: menu.instruction,
         ingredients: parsedIngredients
-    };    
+    };  
+
     return (
         <div>
             <p>{MenuInfo.menuName}</p>
@@ -38,7 +39,7 @@ const ListRandomMeals = ({ allRandomMeals }) => {
             <video><source src={MenuInfo.menuVideo}></source></video>
             {MenuInfo.ingredients.map((ingredients, i) => {
                 return (
-                    <p>{ingredients}</p>
+                    <p key={i}>{ingredients}</p>
                 )
             })}
         </div>
@@ -47,7 +48,7 @@ const ListRandomMeals = ({ allRandomMeals }) => {
 
 const mapStateToProps = (state) => {
     return {
-        allRandomMeals: state.getData.randomMeals[0] || {}
+        showResultMeal: state.getData.toggleResults === false ? (state.getData.randomMeals[0] || {}) : (state.getData.currentIngredient || {})        
     }
 }
 
