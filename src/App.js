@@ -8,9 +8,9 @@ import './App.scss';
 function App() {
   return (
     <div className="App">
+      <RandomMeals/>
       <SearchBar/>
       <SearchResult/>
-      <RandomMeals/>
       <ListRandomMeals/>
     </div>
   );
