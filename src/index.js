@@ -11,10 +11,10 @@ export const store = createStore(
     applyMiddleware(thunk)
 );
 
-const Instagram = () => (
+const ApiMeals = () => (
     <Provider store={store}>
         <App/>
     </Provider>
 )
 
-ReactDOM.render(<Instagram/>, document.getElementById('root'));
+ReactDOM.render(<ApiMeals/>, document.getElementById('root'));
