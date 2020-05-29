@@ -35,7 +35,7 @@ const ListRandomMeals = ({ showResultMeal }) => {
     return (
         <div>
             <p>{MenuInfo.menuName}</p>
-            <img src={MenuInfo.menuImage}/>
+            <img alt={MenuInfo.menuName} src={MenuInfo.menuImage}/>
             <video><source src={MenuInfo.menuVideo}></source></video>
             {MenuInfo.ingredients.map((ingredients, i) => {
                 return (
