@@ -2,7 +2,8 @@ import { types } from '../actions/index';
 
 const initialState = {
     randomMeals: [],
-    allSearchButtons: []
+    allSearchButtons: [],
+    toggleResults: false
 };
 
 export const getMealsData = (state = initialState, action) => {
@@ -10,8 +11,9 @@ export const getMealsData = (state = initialState, action) => {
         case "RANDOM_MEALS":
             return {
                 ...state,
-                randomMeals: action.getMeals
-            };
+                toggleResults: false,
+                randomMeals: action.getMeals,
+            }
         case "SEARCH_MEALS": 
             const searchButtons = action.searchButtons == null ? [] : action.searchButtons;
             return {
@@ -21,7 +23,9 @@ export const getMealsData = (state = initialState, action) => {
         case "SHOW_INGREDIENT": 
             return {
                 ...state,
-                currentIngredient: action.foldRecipe
+                toggleResults: true,
+                currentIngredient: action.foldRecipe,
+              
             }
         default:
             return state;
