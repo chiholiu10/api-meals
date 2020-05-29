@@ -9,16 +9,12 @@ const SearchBar = () => {
 
     useEffect(() => {
         fetchSearchResults()
-    });
-
+    })
+    
     const getSearchValue = (e) => {
         const searchResult = e.target.value.toLowerCase();
         fetchSearchResults(searchResult);
     }
-
-    useEffect(() => {
-        fetchSearchResults()
-    })
 
     const fetchSearchResults = (query) => {
         if(query == null) {
