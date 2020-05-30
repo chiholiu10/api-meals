@@ -4,13 +4,13 @@ import axios from 'axios';
 import { generateSearchButtons } from '../actions/index';
 import { connect } from 'react-redux';
 
-const SearchBar = () => {
+export const SearchBar = () => {
     const dispatch = useDispatch();
-
+    
     useEffect(() => {
         fetchSearchResults()
     })
-    
+
     const getSearchValue = (e) => {
         const searchResult = e.target.value.toLowerCase();
         fetchSearchResults(searchResult);
