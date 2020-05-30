@@ -8,10 +8,12 @@ const SearchResult = ({ ingredientButtons }) => {
     const dispatch = useDispatch();
 
     const buttons = ingredientButtons;
-    if(buttons == undefined) return;
+    if(buttons === undefined) return;
 
     const allButtons = buttons.map((ingredientBtn, i) => {
-        if(ingredientBtn == null) return
+        if(ingredientBtn == null) {
+            return false;
+        }
         return (
             <div key={i}>
                 <button onClick={() => dispatch(openIngredient(ingredientBtn))}>{ingredientBtn.strMeal}</button>
