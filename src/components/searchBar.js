@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { generateSearchButtons } from '../actions/index';
-import { connect } from 'react-redux';
 
 export const SearchBar = () => {
     const dispatch = useDispatch();
@@ -33,9 +32,22 @@ export const SearchBar = () => {
     return (
         <div>
             SearchBar
-            <input type="text" onChange={(e) => getSearchValue(e)}/>
+            <input aria-label="search-bar" type="text" onChange={(e) => getSearchValue(e)}/>
         </div>
     )
 }
 
-export default connect()(SearchBar);
+export const setup = () => {
+    const utils = render(<SearchBar/>);
+    const input = utils.getByLabelText('search-bar');
+    return {
+        input,
+        ...utils
+    }
+}
+
+test('It should keep a $ in front of the input', () => {
+    const { input } = setup()
+    fireEvent.change(input, { target: { value: '23' } })
+    expect(input.value).toBe('$23')
+})
