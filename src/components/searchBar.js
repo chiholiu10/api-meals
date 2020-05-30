@@ -36,18 +36,3 @@ export const SearchBar = () => {
         </div>
     )
 }
-
-export const setup = () => {
-    const utils = render(<SearchBar/>);
-    const input = utils.getByLabelText('search-bar');
-    return {
-        input,
-        ...utils
-    }
-}
-
-test('It should keep a $ in front of the input', () => {
-    const { input } = setup()
-    fireEvent.change(input, { target: { value: '23' } })
-    expect(input.value).toBe('$23')
-})
