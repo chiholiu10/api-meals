@@ -4,7 +4,7 @@ import { openIngredient } from '../actions/index';
 import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
-const SearchResult = ({ ingredientButtons }) => {
+export const SearchResult = ({ ingredientButtons }) => {
     const dispatch = useDispatch();
 
     const buttons = ingredientButtons;
@@ -16,7 +16,7 @@ const SearchResult = ({ ingredientButtons }) => {
         }
         return (
             <div key={i}>
-                <button onClick={() => dispatch(openIngredient(ingredientBtn))}>{ingredientBtn.strMeal}</button>
+                <button aria-label="search-result" onClick={() => dispatch(openIngredient(ingredientBtn))}>{ingredientBtn.strMeal}</button>
             </div>
         )
     })

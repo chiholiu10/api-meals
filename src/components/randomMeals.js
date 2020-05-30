@@ -16,7 +16,7 @@ export const RandomMeals = () => {
     }
     return (
         <div>
-            <button onClick={getRandomMeals}>Get Random</button>
+            <button aria-label="random-meals-button" onClick={getRandomMeals}>Get Random</button>
         </div>
     )
 }
