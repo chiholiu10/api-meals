@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { getRandomMeal } from '../actions/index';
 
-const RandomMeals = () => {
+export const RandomMeals = () => {
     const dispatch = useDispatch();
 
     const getRandomMeals = () => {
