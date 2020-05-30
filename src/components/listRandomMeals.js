@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const ListRandomMeals = ({ showResultMeal }) => {
+export const ListRandomMeals = ({ showResultMeal }) => {
     const meal = showResultMeal;
 
     // get all ingredients clustered in one array
@@ -33,7 +33,7 @@ const ListRandomMeals = ({ showResultMeal }) => {
     };  
 
     return (
-        <div>
+        <div id="api">
             <p>{MenuInfo.menuName}</p>
             <img alt={MenuInfo.menuName} src={MenuInfo.menuImage}/>
             <video><source src={MenuInfo.menuVideo}></source></video>
