@@ -2,9 +2,6 @@ import React from 'react'
 import { render, fireEvent } from '@testing-library/react';
 import { SearchBar } from './SearchBar';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import getData from '../reducers';
-import thunk from 'redux-thunk';
 import { store } from './Store';
 
 const setup = () => {
