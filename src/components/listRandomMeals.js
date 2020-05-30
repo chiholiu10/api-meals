@@ -33,7 +33,7 @@ export const ListRandomMeals = ({ showResultMeal }) => {
     };  
 
     return (
-        <div id="api">
+        <div>
             <p>{MenuInfo.menuName}</p>
             <img alt={MenuInfo.menuName} src={MenuInfo.menuImage}/>
             <video><source src={MenuInfo.menuVideo}></source></video>
