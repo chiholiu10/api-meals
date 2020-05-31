@@ -1,10 +1,9 @@
 import React from 'react';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { openIngredient } from '../actions/index';
 import { connect } from 'react-redux';
-import { useDispatch } from 'react-redux';
 
-export const SearchResult = ({ ingredientButtons }) => {
+const SearchResult = ({ ingredientButtons }) => {
     const dispatch = useDispatch();
 
     const buttons = ingredientButtons;
@@ -12,19 +11,18 @@ export const SearchResult = ({ ingredientButtons }) => {
 
     const allButtons = buttons.map((ingredientBtn, i) => {
         if(ingredientBtn == null) {
-            return false;
+            return null;
         }
         return (
             <div key={i}>
-                <button aria-label="search-result" onClick={() => dispatch(openIngredient(ingredientBtn))}>{ingredientBtn.strMeal}</button>
+                <button onClick={() => dispatch(openIngredient(ingredientBtn))}>{ingredientBtn.strMeal}</button>
             </div>
         )
     })
 
     return (
         <div>
-            SearchResult
-            {allButtons}
+            {allButtons == null ? <div data-testid="search-result-buttons"></div> : <div data-testid="search-result-buttons"></div>}
         </div>
     )
 }
