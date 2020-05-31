@@ -15,6 +15,7 @@
     "react-simple-infinite-scroll": "0.0.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "styled-components": "^5.1.1",
     "thunk": "0.0.1"
   },
   "scripts": {
