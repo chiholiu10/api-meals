@@ -5,7 +5,7 @@ import { SearchBar } from './SearchBar';
 import SearchResult from './SearchResult';
 
 export const AppComponent = () => (
-  <div>
+  <div data-testid="test-app-component">
     <RandomMeals/>
     <SearchBar/>
     <SearchResult/>
