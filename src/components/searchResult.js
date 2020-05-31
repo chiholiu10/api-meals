@@ -22,7 +22,7 @@ const SearchResult = ({ ingredientButtons }) => {
 
     return (
         <div>
-            {allButtons == null ? <div data-testid="search-result-buttons"></div> : <div data-testid="search-result-buttons"></div>}
+            {allButtons == null ? <div data-testid="search-result-buttons"></div> : <div data-testid="search-result-buttons">{allButtons}</div>}
         </div>
     )
 }
