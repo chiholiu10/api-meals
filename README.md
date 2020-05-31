@@ -10,7 +10,7 @@ When the repository has been cloned from the Github the following
 
 #Architectural decisions
 
-#Why React
+##Why React
 - React because of my experience with this library it makes me more productive, which is business-wise a profitable choice.
 - Backed by Facebook, so the community behind this library is huge which makes it easier for Developer to solve their problem and in the end more productive.
 - Components that can be reused multiple times
