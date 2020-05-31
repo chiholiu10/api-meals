@@ -1,16 +1,14 @@
 import React from 'react'
-import RandomMeals from './components/randomMeals';
-import ListRandomMeals from './components/listRandomMeals';
-import SearchBar from './components/searchBar';
-import SearchResult from './components/searchResult';
+import { RandomMeals } from './RandomMeals';
+import ListRandomMeals from './ListRandomMeals';
+import { SearchBar } from './SearchBar';
+import SearchResult from './SearchResult';
 
-const App = () => (
+export const App = () => (
   <div>
-        <RandomMeals/>
-        <SearchBar/>
-        <SearchResult/>
-        <ListRandomMeals/>
+    <RandomMeals/>
+    <SearchBar/>
+    <SearchResult/>
+    <ListRandomMeals/>
   </div>
 )
-
-export default App
