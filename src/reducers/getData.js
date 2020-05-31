@@ -1,4 +1,3 @@
-import { types } from '../actions/index';
 
 const initialState = {
     randomMeals: [],
@@ -11,8 +10,8 @@ export const getMealsData = (state = initialState, action) => {
         case "RANDOM_MEALS":
             return {
                 ...state,
-                toggleResults: false,
                 randomMeals: action.getMeals,
+                toggleResults: false
             }
         case "SEARCH_MEALS": 
             const searchButtons = action.searchButtons == null ? [] : action.searchButtons;

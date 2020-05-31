@@ -31,7 +31,6 @@ export const SearchBar = () => {
     
     return (
         <div>
-            SearchBar
             <input aria-label="search-bar" type="text" onChange={(e) => getSearchValue(e)}/>
         </div>
     )

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-export const ListRandomMeals = ({ showResultMeal }) => {
+const ListRandomMeals = ({ showResultMeal }) => {
     const meal = showResultMeal;
 
     // get all ingredients clustered in one array
