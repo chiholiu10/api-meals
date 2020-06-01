@@ -1,5 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
+import YouTube from 'react-youtube';
+
+const StyledListRandomMeals = styled.p`
+    color: red;
+`
 
 const ListRandomMeals = ({ showResultMeal }) => {
     const meal = showResultMeal;
@@ -16,30 +22,40 @@ const ListRandomMeals = ({ showResultMeal }) => {
         },
         []
     );
+    const YoutubeID = Object.entries(meal).reduce(
+        (currentYoutubeId, [key, value]) => {
+            if(key.includes("strYoutube") && value !== "") {
+                console.log(value.split('=').pop())
+                const getYoutTubeId = value.split('=').pop();
+                currentYoutubeId.push(`${getYoutTubeId}`);
+            }
+            return currentYoutubeId
+        },
+        []
+    );
 
     const menu = {
         name: meal.strArea,
         image: meal.strMealThumb,
-        video: meal.strYoutube,
         instruction: meal.strInstructions
     };
       
     const MenuInfo = {
         menuName: menu.name,
         menuImage: menu.image,
-        menuVideo: menu.video,
+        menuVideo: YoutubeID,
         menuInstruction: menu.instruction,
         ingredients: parsedIngredients
     };  
 
     return (
-        <div>
-            <p>{MenuInfo.menuName}</p>
-            <img alt={MenuInfo.menuName} src={MenuInfo.menuImage}/>
-            <video><source src={MenuInfo.menuVideo}></source></video>
+        <div className="ingredient-container">
+            <p className="title">{MenuInfo.menuName}</p>
+            <img className="image" alt={MenuInfo.menuName} src={MenuInfo.menuImage}/>
+            <YouTube videoId={MenuInfo.menuVideo} className="video"/>
             {MenuInfo.ingredients.map((ingredients, i) => {
                 return (
-                    <p key={i}>{ingredients}</p>
+                    <p className="ingredient-list" key={i}>{ingredients}</p>
                 )
             })}
         </div>

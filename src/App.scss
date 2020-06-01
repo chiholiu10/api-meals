@@ -1,6 +1,70 @@
 body {
     margin: 0;
-    padding: 10px;
     width: 100%;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+
+    .app-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    @media screen and (min-width: 768px) {
+        .app-desktop-left {
+            width: 17%;
+            padding: 10px;
+        }
+        .app-desktop-right {
+            width: 80%;
+        }
+    }
+
+    // SearchResult.js
+    .button {
+        &-search {
+            &-container {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            &-parent {
+                @media screen and (min-width: 768px) {
+                    flex: 1 0 100%;
+                    margin-top: 5px;
+                    min-height: 50px;
+                }
+                flex: 1 0 21%;
+                height: 50px;
+                border: none;
+            }
+        }
+        &-background-color {
+            background-color: white;
+        }
+        &-default {
+            border: none;
+            border: 1px solid black;
+        }
+    }
+    .ingredient-container {
+        
+        .title {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .image {
+            width: 50%;
+        }
+    }
 }
 
+
+// <div className="ingredient-container">
+// <p className="title">{MenuInfo.menuName}</p>
+// <img className="image" alt={MenuInfo.menuName} src={MenuInfo.menuImage}/>
+// <video className="video"><source src={MenuInfo.menuVideo}></source></video>
+// {MenuInfo.ingredients.map((ingredients, i) => {
+//     return (
+//         <p className="ingredient-list" key={i}>{ingredients}</p>
+//     )
+// })}
+// </div>

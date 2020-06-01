@@ -2,6 +2,19 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { generateSearchButtons } from '../actions/index';
+import styled from 'styled-components';
+
+const Input = styled.input`
+    border: 1px solid black;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    text-indent: 10px;
+    text-transform: capitalize;
+    margin-top: 20px;
+    margin-bottom: 20px;
+`
 
 export const SearchBar = () => {
     const dispatch = useDispatch();
@@ -31,7 +44,7 @@ export const SearchBar = () => {
     
     return (
         <div>
-            <input aria-label="search-bar" type="text" onChange={(e) => getSearchValue(e)}/>
+            <Input aria-label="search-bar" type="text" onChange={(e) => getSearchValue(e)} placeholder="Search Meal"/>
         </div>
     )
 }
