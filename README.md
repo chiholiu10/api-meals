@@ -8,9 +8,8 @@ When the repository has been cloned from the Github the following
 - Random meal
 - Search Input that shows buttons and when someone types in the input field it will only show the matching buttons.
 
-#Architectural decisions
-
-#Why React
+##Architectural decisions
+##Why React
 - React because of my experience with this library it makes me more productive, which is business-wise a profitable choice.
 - Backed by Facebook, so the community behind this library is huge which makes it easier for Developer to solve their problem and in the end more productive.
 - Components that can be reused multiple times
@@ -19,10 +18,13 @@ When the repository has been cloned from the Github the following
 - To understand React it is necessarily to have a deeper understanding of vanilla JavaScript. So it stimulates Developers to understand what really happens under the hood. 
 - In comparison to Angular the learning curve of React is not that steep. 
 
-#Why Redux 
+##Why Redux 
 - Using Redux makes it easier for Developer to follow the state of the application
 
-#how to get App production ready
+##Why styled-component
+- Easier to delete part of CSS, since it is tied to every component. 
+
+##How to get App production ready
 - npm run build
 
 ## Random meal api
