@@ -48,11 +48,13 @@ const ListRandomMeals = ({ showResultMeal }) => {
         ingredients: parsedIngredients
     };  
 
+    console.log(MenuInfo.menuVideo)
+
     return (
         <div className="ingredient-container">
             <p className="title">{MenuInfo.menuName}</p>
             <img className="image" alt={MenuInfo.menuName} src={MenuInfo.menuImage}/>
-            <YouTube videoId={MenuInfo.menuVideo} className="video"/>
+            {MenuInfo.menuVideo.length == 0 ? '' : <YouTube videoId={MenuInfo.menuVideo} className="video"/>}
             {MenuInfo.ingredients.map((ingredients, i) => {
                 return (
                     <p className="ingredient-list" key={i}>{ingredients}</p>
