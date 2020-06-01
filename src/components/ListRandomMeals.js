@@ -1,11 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 import YouTube from 'react-youtube';
-
-const StyledListRandomMeals = styled.p`
-    color: red;
-`
 
 const ListRandomMeals = ({ showResultMeal }) => {
     const meal = showResultMeal;
@@ -13,7 +8,7 @@ const ListRandomMeals = ({ showResultMeal }) => {
     // get all ingredients clustered in one array
     const parsedIngredients = Object.entries(meal).reduce(
         (ingredients, [key, value]) => {
-            if (key.includes("Measure") && value !== "") {
+            if (key.includes("Measure") && value !== "" && value !== null) {
                 const keyReference = key.match(/\d+/)[0];
                 const ingredient = meal[`strIngredient${keyReference}`];
                 ingredients.push(`${value} ${ingredient}`);
