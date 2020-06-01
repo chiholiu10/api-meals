@@ -2,10 +2,16 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { getRandomMeal } from '../actions/index';
-import { connect } from 'react-redux';
+import styled, { css } from 'styled-components';
 
-const RandomMeals = ({ allRandomMeals }) => {
+const Button = styled.button `
+    width: 100%;
+    height: 50px;
+`
+
+export const RandomMeals = () => {
     const dispatch = useDispatch();
+
     const getRandomMeals = () => {
         axios.get('https://www.themealdb.com/api/json/v1/1/random.php')
         .then((res) => {
@@ -16,15 +22,9 @@ const RandomMeals = ({ allRandomMeals }) => {
     }
     return (
         <div>
-            <button onClick={getRandomMeals}>Get Random</button>
+            <Button className="button-background-color button-default" aria-label="random-meals-button" onClick={getRandomMeals}>Get Random</Button>
         </div>
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-       allRandomMeals: state.getData.randomMeals
-    }
-}
-
-export default connect(mapStateToProps, null)(RandomMeals);
+export default RandomMeals;

@@ -1,13 +1,12 @@
 import React from 'react';
-import RandomMeals from './components/randomMeals';
-import ListRandomMeals from './components/listRandomMeals';
 import './App.scss';
+import {AppComponent } from './components/App';
+
 
 function App() {
   return (
     <div className="App">
-      <RandomMeals/>
-      <ListRandomMeals/>
+      <AppComponent/>
     </div>
   );
 }
