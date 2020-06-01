@@ -38,3 +38,11 @@ Each ingredient should be clickable.
 
 #Writing tests
 When each component has been written in a maintainable and reusable way, then the next step is to write a test in Jest
+
+Todo-list
+* ListRandomMeals test
+* App.test.js
+* Styling compnents
+* Write ReadMe
+* Check if app is working 
+* Prettier to make code more readable
