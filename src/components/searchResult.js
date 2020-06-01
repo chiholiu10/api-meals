@@ -2,6 +2,12 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { openIngredient } from '../actions/index';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
+
+const Button = styled.button`
+    width: 100%;
+    height: 50px;
+`
 
 const SearchResult = ({ ingredientButtons }) => {
     const dispatch = useDispatch();
@@ -14,15 +20,15 @@ const SearchResult = ({ ingredientButtons }) => {
             return null;
         }
         return (
-            <div key={i}>
-                <button onClick={() => dispatch(openIngredient(ingredientBtn))}>{ingredientBtn.strMeal}</button>
+            <div key={i} className="button-search-parent">
+                <Button className="button-background-color button-default" onClick={() => dispatch(openIngredient(ingredientBtn))}>{ingredientBtn.strMeal}</Button>
             </div>
         )
     })
 
     return (
         <div>
-            {allButtons == null ? <div data-testid="search-result-buttons"></div> : <div data-testid="search-result-buttons">{allButtons}</div>}
+            {allButtons == null ? <div data-testid="search-result-buttons"></div> : <div data-testid="search-result-buttons" className="button-search-container">{allButtons}</div>}
         </div>
     )
 }
