@@ -14,6 +14,5 @@ export const AppComponent = () => (
     <div className="app-mobile app-desktop-right">
       <ListRandomMeals/>
     </div>
-
   </div>
 )
