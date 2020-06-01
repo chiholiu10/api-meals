@@ -20,7 +20,6 @@ const ListRandomMeals = ({ showResultMeal }) => {
     const YoutubeID = Object.entries(meal).reduce(
         (currentYoutubeId, [key, value]) => {
             if(key.includes("strYoutube") && value !== "") {
-                console.log(value.split('=').pop())
                 const getYoutTubeId = value.split('=').pop();
                 currentYoutubeId.push(`${getYoutTubeId}`);
             }
@@ -42,8 +41,6 @@ const ListRandomMeals = ({ showResultMeal }) => {
         menuInstruction: menu.instruction,
         ingredients: parsedIngredients
     };  
-
-    console.log(MenuInfo.menuVideo)
 
     return (
         <div className="ingredient-container">
