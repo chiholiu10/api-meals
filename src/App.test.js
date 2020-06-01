@@ -1,9 +1,12 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import AppComponent from './App';
+import { Provider } from 'react-redux';
+import { store } from './Store';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<AppComponent />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('App not crashing', () => {
+  const appComponent = render(<Provider store={store}><AppComponent /></Provider>);
+  const element = appComponent.getByTestId('test-app-component');
+  console.log(element)
+  // expect(element.getAttribute('data-testid').toBe('test-app-component'));
 });
