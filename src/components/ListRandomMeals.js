@@ -49,6 +49,7 @@ const ListRandomMeals = ({ showResultMeal }) => {
         <div className="ingredient-container">
             <p className="title">{MenuInfo.menuName}</p>
             <img className="image" alt={MenuInfo.menuName} src={MenuInfo.menuImage}/>
+            <p className="instruction">{MenuInfo.menuInstruction}</p>
             {MenuInfo.menuVideo.length == 0 ? '' : <YouTube videoId={MenuInfo.menuVideo} className="video"/>}
             {MenuInfo.ingredients.map((ingredients, i) => {
                 return (
