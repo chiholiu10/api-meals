@@ -1,8 +1,8 @@
 import React from 'react'
-import { RandomMeals } from './RandomMeals';
-import ListRandomMeals from './ListRandomMeals';
-import { SearchBar } from './SearchBar';
-import SearchResult from './SearchResult';
+import { RandomMeals } from './RandomMeals/RandomMeals';
+import ListRandomMeals from './ListRandomMeals/ListRandomMeals';
+import { SearchBar } from './SearchBar/SearchBar';
+import SearchResult from './SearchResult/SearchResult';
 
 export const AppComponent = () => (
   <div className="app-container">
