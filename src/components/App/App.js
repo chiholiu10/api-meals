@@ -6,7 +6,7 @@ import { TopBar } from '../TopBar/TopBar';
 import SearchResult from '../SearchResult/SearchResult';
 
 export const AppComponent = () => (
-  <div className="app-container">
+  <div className="app-container" data-testid="app-component-test">
       <TopBar/>
       <div className="column app-mobile app-desktop-left">
         <RandomMeals/>
