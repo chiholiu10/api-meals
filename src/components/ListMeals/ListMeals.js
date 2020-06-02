@@ -63,7 +63,7 @@ export const ListRandomMeals = ({ showResultMeal }) => {
 
     if(isEmpty(showResultMeal)) {
         return (
-            <div data-testid="list-random-meals-empty" class="empty-meal-error-message">Please click on button to see ingredients</div>
+            <div data-testid="list-random-meals-empty" className="empty-meal-error-message">Please click on button to see ingredients</div>
         )
     } else {
         return (
