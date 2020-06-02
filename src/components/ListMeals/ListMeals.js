@@ -79,7 +79,6 @@ export const ListMeals = ({ showResultMeal }) => {
                 </div>
                 <p className="instruction content">{MenuInfo.menuInstruction}</p>
                 {MenuInfo.menuVideo == 0 ? "" : <YouTube videoId={MenuInfo.menuVideo} className="video"/>}
-        
             </div>
         )
     }
