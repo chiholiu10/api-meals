@@ -5,7 +5,7 @@ export const TopBar = () => {
     return (
         <div className="dashboard-title-component">
             <div>
-                <div>Dashboard Menu</div>
+                <div data-testid="title-content">Dashboard Menu</div>
             </div>
         </div>
     )
