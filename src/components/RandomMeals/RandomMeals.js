@@ -2,12 +2,6 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { getRandomMeal } from '../../actions/index';
-import styled from 'styled-components';
-
-const Button = styled.button `
-    width: 100%;
-    height: 50px;
-`
 
 export const RandomMeals = () => {
     const dispatch = useDispatch();
@@ -22,7 +16,7 @@ export const RandomMeals = () => {
     }
     return (
         <div>
-            <Button className="button-background-color button-default" aria-label="random-meals-button" onClick={getRandomMeals}>Get Random</Button>
+            <div className="button-background-color button-default button-random" aria-label="random-meals-button" onClick={getRandomMeals}>Get Random</div>
         </div>
     )
 }
