@@ -1,7 +1,6 @@
-import React from 'react';
-import './App.scss';
-import { AppComponent } from './components/App/App';
-
+import React from "react";
+import "./App.scss";
+import { AppComponent } from "./components/App/App";
 
 function App() {
   return (
