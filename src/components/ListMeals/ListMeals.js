@@ -1,48 +1,67 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import YouTube from 'react-youtube';
+import { isEmpty } from "lodash";
 
 export const ListRandomMeals = ({ showResultMeal }) => {
     const meal = showResultMeal;
 
-    // get all ingredients clustered in one array
-    const parsedIngredients = Object.entries(meal).reduce(
-        (ingredients, [key, value]) => {
-            if (key.includes("Measure") && value !== "" && value !== null) {
-                const keyReference = key.match(/\d+/)[0];
-                const ingredient = meal[`strIngredient${keyReference}`];
-                ingredients.push(`${value} ${ingredient}`);
+    console.log(showResultMeal);
+
+    const extractValues = (object, rules) => {
+        return Object.entries(object).reduce((acc, [key, value]) => {
+            for (let [ruleKey, func] of Object.entries(rules)) {
+                const result = func(key, value);
+
+                if(result) {
+                    acc[ruleKey] = [...(acc[ruleKey] || []), result]
+                }
             }
-            return ingredients;
+
+            return acc;
+        }, {});
+    }
+
+    const rules = {
+        parsedIngredients: (key, value) => {
+          if (key.includes("Measure") && value) {
+            const keyReference = key.match(/\d+/)[0];
+            const ingredient = meal[`strIngredient${keyReference}`];
+
+            return `${value} ${ingredient}`;
+          }
         },
-        []
-    );
-    const YoutubeID = Object.entries(meal).reduce(
-        (currentYoutubeId, [key, value]) => {
-            if(key.includes("strYoutube") && value !== "") {
-                const getYoutTubeId = value.split('=').pop();
-                currentYoutubeId.push(`${getYoutTubeId}`);
-            }
-            return currentYoutubeId
-        },
-        []
-    );
+        youtubeId: (key, value) => {
+          if (key.includes("strYoutube") && value) {
+            const getYoutTubeId = value.split('=').pop();
+
+            return `${getYoutTubeId}`;
+          }
+        }
+    }
+
+    const {
+        parsedIngredients,
+        youtubeId
+    } = extractValues(meal, rules);
 
     const menu = {
         name: meal.strArea,
         image: meal.strMealThumb,
-        instruction: meal.strInstructions
+        youtube: youtubeId,
+        instruction: meal.strInstructions,
+        ingredients: parsedIngredients
     };
       
     const MenuInfo = {
         menuName: menu.name,
         menuImage: menu.image,
-        menuVideo: YoutubeID,
+        menuVideo: menu.youtube,
         menuInstruction: menu.instruction,
-        ingredients: parsedIngredients
+        ingredients: menu.ingredients
     };  
 
-    if(showResultMeal.length == 0) {
+    if(isEmpty(showResultMeal)) {
         return (
             <div data-testid="list-random-meals-empty">Please click on button to see ingredients</div>
         )
@@ -51,15 +70,16 @@ export const ListRandomMeals = ({ showResultMeal }) => {
             <div className="ingredient-container" data-testid="list-random-meals">
                 <p className="title">{MenuInfo.menuName}</p>
                 <img className="image" alt={MenuInfo.menuName} src={MenuInfo.menuImage}/>
-                <p className="instruction">{MenuInfo.menuInstruction}</p>
-                {MenuInfo.menuVideo.length == 0 ? '' : <YouTube videoId={MenuInfo.menuVideo} className="video"/>}
-                <div class="ingredient-container-list">
+                <div class="ingredient-container-list content">
                     {MenuInfo.ingredients.map((ingredients, i) => {
                         return (
                             <p className="ingredient-list" key={i}>{ingredients}</p>
                         )
                     })}
                 </div>
+                <p className="instruction content">{MenuInfo.menuInstruction}</p>
+                {MenuInfo.menuVideo == 0 ? '' : <YouTube videoId={MenuInfo.menuVideo} className="video"/>}
+        
             </div>
         )
     }
