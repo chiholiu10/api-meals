@@ -3,7 +3,7 @@ import React from 'react';
 
 export const TopBar = () => {
     return (
-        <div className="dashboard-title-component">
+        <div className="column dashboard-title-component">
             <div>
                 <div data-testid="title-content">Dashboard Menu</div>
             </div>
