@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import axios from 'axios';
-import { generateSearchButtons } from '../../actions/index';
-import styled from 'styled-components';
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import { generateSearchButtons } from "../../actions/index";
+import styled from "styled-components";
 
 const Input = styled.input`
     border: 1px solid black;
@@ -44,7 +44,13 @@ export const SearchBar = () => {
     
     return (
         <div>
-            <Input className="search-input-field" aria-label="search-bar" type="text" onChange={(e) => getSearchValue(e)} placeholder="Search Meal"/>
+            < Input className = "search-input-field"
+            aria-label = "search-bar"
+            type = "text"
+            onChange = {
+                (e) => getSearchValue(e)
+            }
+            placeholder = "Search Meal" />
         </div>
     )
 }

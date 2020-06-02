@@ -1,6 +1,6 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import YouTube from 'react-youtube';
+import React from "react";
+import { connect } from "react-redux";
+import YouTube from "react-youtube";
 import { isEmpty } from "lodash";
 
 export const ListRandomMeals = ({ showResultMeal }) => {
@@ -33,7 +33,7 @@ export const ListRandomMeals = ({ showResultMeal }) => {
         },
         youtubeId: (key, value) => {
           if (key.includes("strYoutube") && value) {
-            const getYoutTubeId = value.split('=').pop();
+            const getYoutTubeId = value.split("=").pop();
 
             return `${getYoutTubeId}`;
           }
@@ -78,7 +78,7 @@ export const ListRandomMeals = ({ showResultMeal }) => {
                     })}
                 </div>
                 <p className="instruction content">{MenuInfo.menuInstruction}</p>
-                {MenuInfo.menuVideo == 0 ? '' : <YouTube videoId={MenuInfo.menuVideo} className="video"/>}
+                {MenuInfo.menuVideo == 0 ? "" : <YouTube videoId={MenuInfo.menuVideo} className="video"/>}
         
             </div>
         )

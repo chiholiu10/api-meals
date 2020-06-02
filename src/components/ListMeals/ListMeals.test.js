@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { ListRandomMeals } from "../ListRandomMeals/ListRandomMeals";
 import { fixedApi } from "../../mock/mockAPI";
-import { emptyApi } from '../../mock/emptyMockApi';
+import { emptyApi } from "../../mock/emptyMockApi";
 import { Provider } from "react-redux";
 import { store } from "../../Store";
 import { screen } from "@testing-library/dom";
