@@ -53,11 +53,13 @@ export const ListRandomMeals = ({ showResultMeal }) => {
                 <img className="image" alt={MenuInfo.menuName} src={MenuInfo.menuImage}/>
                 <p className="instruction">{MenuInfo.menuInstruction}</p>
                 {MenuInfo.menuVideo.length == 0 ? '' : <YouTube videoId={MenuInfo.menuVideo} className="video"/>}
-                {MenuInfo.ingredients.map((ingredients, i) => {
-                    return (
-                        <p className="ingredient-list" key={i}>{ingredients}</p>
-                    )
-                })}
+                <div class="ingredient-container-list">
+                    {MenuInfo.ingredients.map((ingredients, i) => {
+                        return (
+                            <p className="ingredient-list" key={i}>{ingredients}</p>
+                        )
+                    })}
+                </div>
             </div>
         )
     }
