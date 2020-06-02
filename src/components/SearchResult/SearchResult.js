@@ -2,12 +2,6 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { openIngredient } from '../../actions/index';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
-
-const Button = styled.button`
-    width: 100%;
-    height: 50px;
-`
 
 export const SearchResult = ({ ingredientButtons }) => {
     const dispatch = useDispatch();
@@ -21,7 +15,7 @@ export const SearchResult = ({ ingredientButtons }) => {
         }
         return (
             <div key={i} className="button-search-parent">
-                <Button className="button-background-color button-default" onClick={() => dispatch(openIngredient(ingredientBtn))}>{ingredientBtn.strMeal}</Button>
+                <div className="button-background-color button-default" onClick={() => dispatch(openIngredient(ingredientBtn))}>{ingredientBtn.strMeal}</div>
             </div>
         )
     })
