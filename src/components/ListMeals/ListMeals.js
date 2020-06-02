@@ -70,7 +70,7 @@ export const ListMeals = ({ showResultMeal }) => {
             <div className="ingredient-container" data-testid="list-random-meals">
                 <p className="title">{MenuInfo.menuName}</p>
                 <img className="image" alt={MenuInfo.menuName} src={MenuInfo.menuImage}/>
-                <div class="ingredient-container-list content">
+                <div className="ingredient-container-list content">
                     { MenuInfo.ingredients == undefined ? "" : MenuInfo.ingredients.map((ingredients, i) => {
                         return (
                             <p className="ingredient-list" key={i}>{ingredients}</p>
