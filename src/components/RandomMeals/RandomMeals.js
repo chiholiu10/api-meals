@@ -20,5 +20,3 @@ export const RandomMeals = () => {
         </div>
     )
 }
-
-export default RandomMeals;

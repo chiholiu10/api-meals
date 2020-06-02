@@ -3,10 +3,8 @@ import { connect } from "react-redux";
 import YouTube from "react-youtube";
 import { isEmpty } from "lodash";
 
-export const ListRandomMeals = ({ showResultMeal }) => {
+export const ListMeals = ({ showResultMeal }) => {
     const meal = showResultMeal;
-
-    console.log(showResultMeal);
 
     const extractValues = (object, rules) => {
         return Object.entries(object).reduce((acc, [key, value]) => {
@@ -24,7 +22,7 @@ export const ListRandomMeals = ({ showResultMeal }) => {
 
     const rules = {
         parsedIngredients: (key, value) => {
-          if (key.includes("Measure") && value) {
+          if (key.includes("Measure") && value !== "" && value !== null){
             const keyReference = key.match(/\d+/)[0];
             const ingredient = meal[`strIngredient${keyReference}`];
 
@@ -32,7 +30,7 @@ export const ListRandomMeals = ({ showResultMeal }) => {
           }
         },
         youtubeId: (key, value) => {
-          if (key.includes("strYoutube") && value) {
+          if (key.includes("strYoutube") && value !== "") {
             const getYoutTubeId = value.split("=").pop();
 
             return `${getYoutTubeId}`;
@@ -52,6 +50,8 @@ export const ListRandomMeals = ({ showResultMeal }) => {
         instruction: meal.strInstructions,
         ingredients: parsedIngredients
     };
+
+
       
     const MenuInfo = {
         menuName: menu.name,
@@ -61,7 +61,7 @@ export const ListRandomMeals = ({ showResultMeal }) => {
         ingredients: menu.ingredients
     };  
 
-    if(isEmpty(showResultMeal)) {
+    if(isEmpty(meal)) {
         return (
             <div data-testid="list-random-meals-empty" className="empty-meal-error-message">Please click on button to see ingredients</div>
         )
@@ -71,7 +71,7 @@ export const ListRandomMeals = ({ showResultMeal }) => {
                 <p className="title">{MenuInfo.menuName}</p>
                 <img className="image" alt={MenuInfo.menuName} src={MenuInfo.menuImage}/>
                 <div class="ingredient-container-list content">
-                    {MenuInfo.ingredients.map((ingredients, i) => {
+                    { MenuInfo.ingredients == undefined ? "" : MenuInfo.ingredients.map((ingredients, i) => {
                         return (
                             <p className="ingredient-list" key={i}>{ingredients}</p>
                         )
@@ -91,4 +91,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, null)(ListRandomMeals);
+export default connect(mapStateToProps, null)(ListMeals);
