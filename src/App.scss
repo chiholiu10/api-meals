@@ -3,7 +3,6 @@ body {
   width: 100%;
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
-
   .app {
     &-container {
       display: flex;
@@ -17,7 +16,6 @@ body {
       }
     }
   }
-
   .dashboard-title-component {
     height: 70px;
     width: 100%;
@@ -27,13 +25,13 @@ body {
   }
 
   @media screen and (min-width: 768px) {
-      .app-desktop-left {
-          width: 17%;
-          padding: 10px;
-      }
-      .app-desktop-right {
-          width: 80%;
-      }
+    .app-desktop-left {
+        width: 17%;
+        padding: 10px;
+    }
+    .app-desktop-right {
+        width: 80%;
+    }
   }
 
   // SearchResult.js
@@ -64,8 +62,9 @@ body {
   }
   .ingredient-container {
     .title {
-        font-size: 30px;
-        font-weight: bold;
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 1.6;
     }
     
     .image {
@@ -74,8 +73,16 @@ body {
       }
       width: 100%;
     }
+    &-list {
+      padding: 10px;
+      line-height: 0;
+    }
   }
   iframe {
     width: 100%;
   }
+  .instruction {
+    padding: 10px;
+  }
+
 }
