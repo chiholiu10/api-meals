@@ -71,6 +71,7 @@ body {
   
   .app-desktop-right {
     background-color: $white;
+    min-height: 500px;
     @media screen and (min-width: $desktop) {
       width: 80%;
     }
@@ -78,22 +79,22 @@ body {
 
   .button {
     &-search {
-        &-container {
-          display: flex;
-          flex-wrap: wrap;
-          @media screen and (max-width: $mobile) {
-            padding-bottom: 20px;
-          }
+      &-container {
+        display: flex;
+        flex-wrap: wrap;
+        @media screen and (max-width: $mobile) {
+          padding-bottom: 20px;
         }
-        &-parent {
-          flex: 1 1 32.8%;
-          height: 50px;
-          border: none;
-          @media screen and (min-width: $desktop) {
-            flex: 1 0 100%;
-            min-height: 50px;
-          }
+      }
+      &-parent {
+        flex: 1 1 32.8%;
+        height: 50px;
+        border: none;
+        @media screen and (min-width: $desktop) {
+          flex: 1 0 100%;
+          min-height: 50px;
         }
+      }
     }
     &-background-color {
       @media screen and (min-width: $desktop) {
