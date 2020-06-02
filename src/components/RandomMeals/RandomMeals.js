@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
-import { getRandomMeal } from '../actions/index';
-import styled, { css } from 'styled-components';
+import { getRandomMeal } from '../../actions/index';
+import styled from 'styled-components';
 
 const Button = styled.button `
     width: 100%;

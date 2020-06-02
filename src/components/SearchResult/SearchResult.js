@@ -1,10 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { openIngredient } from '../actions/index';
+import { openIngredient } from '../../actions/index';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { fixedApi } from "../mock/mockAPI";
-import { emptyApi } from '../mock/emptyMockApi';
 
 const Button = styled.button`
     width: 100%;

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
-import { generateSearchButtons } from '../actions/index';
+import { generateSearchButtons } from '../../actions/index';
 import styled from 'styled-components';
 
 const Input = styled.input`
