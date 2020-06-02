@@ -1,5 +1,5 @@
 import React from "react";
-import { render, getAllByTestId } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { ListRandomMeals } from "./ListRandomMeals";
 import { fixedApi } from "../mock/mockAPI";
@@ -17,7 +17,6 @@ test("It should check if array is empty", () => {
     const ingredientList = screen.getAllByTestId('list-random-meals-empty');
     expect(ingredientList).toHaveLength(1)
 });
-
 
 test("It should check if array exists", () => {
     render(

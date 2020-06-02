@@ -1,22 +1,29 @@
 
 import React from 'react'
 import { render } from '@testing-library/react';
-import SearchResult  from './SearchResult';
+import { SearchResult } from './SearchResult';
 import { Provider } from 'react-redux';
 import { store } from './../Store';
+import { screen } from "@testing-library/dom";
+import { fixedApi } from "../mock/mockAPI";
+import { emptyApi } from '../mock/emptyMockApi';
 
-const id = 'search-result-buttons';
+test("It should check whether the button(s) exist", () => {
+    render(
+        <Provider store={store}>
+            <SearchResult ingredientButtons={fixedApi}/>
+        </Provider>
+    )
+    const resultBtn = screen.getAllByTestId("search-result-buttons");
+    expect(resultBtn).toHaveLength(1);
+});
 
-const setup = () => {
-    const utils = render(<Provider store={store}><SearchResult/></Provider>);
-    const buttons = utils.getByTestId(id);
-    return {
-        buttons,
-        ...utils
-    }
-}
-
-test('It should check whether the element exist', () => {
-    const { buttons } = setup()
-    expect(buttons.getAttribute('data-testid')).toBe(id)
-})
+test("It should check if there is no buttons", () => {
+    render(
+        <Provider store={store}>
+            <SearchResult ingredientButtons={emptyApi}/>
+        </Provider>
+    )
+    const resultBtnEmpty = screen.getAllByTestId("search-result-buttons-empty");
+    expect(resultBtnEmpty).toHaveLength(1);
+});

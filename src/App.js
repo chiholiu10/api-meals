@@ -5,7 +5,7 @@ import {AppComponent } from './components/App';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" data-testid="app-component"> 
       <AppComponent/>
     </div>
   );

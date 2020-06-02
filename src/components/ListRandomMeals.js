@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import YouTube from 'react-youtube';
 
-const ListRandomMeals = ({ showResultMeal }) => {
+export const ListRandomMeals = ({ showResultMeal }) => {
     const meal = showResultMeal;
 
     // get all ingredients clustered in one array
@@ -20,7 +20,6 @@ const ListRandomMeals = ({ showResultMeal }) => {
     const YoutubeID = Object.entries(meal).reduce(
         (currentYoutubeId, [key, value]) => {
             if(key.includes("strYoutube") && value !== "") {
-                console.log(value.split('=').pop())
                 const getYoutTubeId = value.split('=').pop();
                 currentYoutubeId.push(`${getYoutTubeId}`);
             }
@@ -43,21 +42,25 @@ const ListRandomMeals = ({ showResultMeal }) => {
         ingredients: parsedIngredients
     };  
 
-    console.log(MenuInfo.menuVideo)
-
-    return (
-        <div className="ingredient-container">
-            <p className="title">{MenuInfo.menuName}</p>
-            <img className="image" alt={MenuInfo.menuName} src={MenuInfo.menuImage}/>
-            <p className="instruction">{MenuInfo.menuInstruction}</p>
-            {MenuInfo.menuVideo.length == 0 ? '' : <YouTube videoId={MenuInfo.menuVideo} className="video"/>}
-            {MenuInfo.ingredients.map((ingredients, i) => {
-                return (
-                    <p className="ingredient-list" key={i}>{ingredients}</p>
-                )
-            })}
-        </div>
-    )
+    if(showResultMeal.length == 0) {
+        return (
+            <div data-testid="list-random-meals-empty">Please click on button to see ingredients</div>
+        )
+    } else {
+        return (
+            <div className="ingredient-container" data-testid="list-random-meals">
+                <p className="title">{MenuInfo.menuName}</p>
+                <img className="image" alt={MenuInfo.menuName} src={MenuInfo.menuImage}/>
+                <p className="instruction">{MenuInfo.menuInstruction}</p>
+                {MenuInfo.menuVideo.length == 0 ? '' : <YouTube videoId={MenuInfo.menuVideo} className="video"/>}
+                {MenuInfo.ingredients.map((ingredients, i) => {
+                    return (
+                        <p className="ingredient-list" key={i}>{ingredients}</p>
+                    )
+                })}
+            </div>
+        )
+    }
 }
 
 const mapStateToProps = (state) => {
