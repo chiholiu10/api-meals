@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { ListRandomMeals } from "../ListRandomMeals/ListRandomMeals";
+import { ListMeals } from "../ListMeals/ListMeals";
 import { fixedApi } from "../../mock/mockAPI";
 import { emptyApi } from "../../mock/emptyMockApi";
 import { Provider } from "react-redux";
@@ -11,7 +11,7 @@ import { screen } from "@testing-library/dom";
 test("It should check if array is empty", () => {
     render(
         <Provider store={store}>
-          <ListRandomMeals showResultMeal={emptyApi} />
+          <ListMeals showResultMeal={emptyApi} />
         </Provider>
     );
     const ingredientList = screen.getAllByTestId('list-random-meals-empty');
@@ -21,7 +21,7 @@ test("It should check if array is empty", () => {
 test("It should check if array exists", () => {
     render(
         <Provider store={store}>
-          <ListRandomMeals showResultMeal={fixedApi} />
+          <ListMeals showResultMeal={fixedApi} />
         </Provider>
     );
     const ingredientList = screen.getAllByTestId('list-random-meals');

@@ -1,7 +1,7 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { openIngredient } from '../../actions/index';
-import { connect } from 'react-redux';
+import React from "react";
+import { useDispatch } from "react-redux";
+import { openIngredient } from "../../actions/index";
+import { connect } from "react-redux";
 
 export const SearchResult = ({ ingredientButtons }) => {
     const dispatch = useDispatch();
