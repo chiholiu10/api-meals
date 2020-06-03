@@ -9,7 +9,7 @@ import { screen } from "@testing-library/dom";
 test("It should check components exist", () => {
     render(
         <Provider store={store}>
-          <AppComponent/>
+            <AppComponent/>
         </Provider>
     );
 

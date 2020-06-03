@@ -33,4 +33,4 @@ describe('actions', () => {
         }
         expect(actions.openIngredient(foldRecipe)).toEqual(expectedAction)
     });
-})
+});
