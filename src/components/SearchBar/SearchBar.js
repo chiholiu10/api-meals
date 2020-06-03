@@ -44,7 +44,7 @@ export const SearchBar = () => {
     
     return (
         <div>
-            <Input className="search-input-field" aria-label="search-bar"type = "text" onChange = {(e) => getSearchValue(e)} placeholder = "Search Meal" />
+            <Input className="search-input-field" aria-label="search-bar" type = "text" onChange = {(e) => getSearchValue(e)} placeholder = "Search Meal" />
         </div>
     )
 }
