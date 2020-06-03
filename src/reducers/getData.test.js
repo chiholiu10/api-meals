@@ -1,6 +1,6 @@
 import getData from "./getData";
 
-describe("todos reducer", () => {
+describe("getData reducer", () => {
   it("should return the initial state", () => {
     expect(getData(undefined, {})).toEqual(
       {
