@@ -32,7 +32,7 @@ When the repository has been cloned from the Github the following steps should b
 
 # How to get App production ready
 
-- run the test first to check if everything works properly with - npm run test (if all tests passed then it is ready to go to for the next step below)
+- Run the test first to check if everything works properly with - npm run test (if all tests passed then it is ready to go to for the next step below)
 - npm run build
 
 # Random meal api
