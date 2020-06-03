@@ -14,7 +14,7 @@ test("It should check if array is empty", () => {
           <ListMeals showResultMeal={emptyApi} />
         </Provider>
     );
-    const ingredientList = screen.getAllByTestId('list-random-meals-empty');
+    const ingredientList = screen.getAllByTestId("list-random-meals-empty");
     expect(ingredientList).toHaveLength(1);
 });
 
@@ -24,6 +24,6 @@ test("It should check if array exists", () => {
           <ListMeals showResultMeal={fixedApi} />
         </Provider>
     );
-    const ingredientList = screen.getAllByTestId('list-random-meals');
+    const ingredientList = screen.getAllByTestId("list-random-meals");
     expect(ingredientList).toHaveLength(1)
 });
