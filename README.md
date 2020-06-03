@@ -1,5 +1,5 @@
 # Instruction how to start app
-When the repository has been cloned from the Github the following
+When the repository has been cloned from the Github the following steps should be taken to start this app
 
 - NPM install
 - NPM run start
