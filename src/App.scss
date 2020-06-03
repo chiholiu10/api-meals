@@ -5,6 +5,9 @@ $blue-light: #29b6f6;
 $blue-dark: #0086c3;
 $white: white;
 $black: black;
+$black-default: #1B1C1D;
+$transparent: transparent;
+$grey: rgba(255,255,255,.5);
 
 body {
   margin: 0;
@@ -42,6 +45,7 @@ body {
       }
     }
   }
+  
   .dashboard-title-component {
     height: 40px;
     width: 100%;
@@ -64,7 +68,7 @@ body {
   .app-desktop-left {
     @media screen and (min-width: $desktop) {
       width: 20%;
-      background-color: #1B1C1D;
+      background-color: $black-default;
     }
     font-size: 14px;
   }
@@ -98,7 +102,7 @@ body {
     }
     &-background-color {
       @media screen and (min-width: $desktop) {
-        background-color: transparent;
+        background-color: $transparent;
       }
     }
     &-default {
@@ -114,7 +118,7 @@ body {
       }
    
       @media screen and (min-width: $desktop) {
-        color: rgba(255,255,255,.5);
+        color: $grey;
         &:hover {
           cursor: pointer;
           color: $white;
@@ -141,7 +145,6 @@ body {
       font-size: 30px;
       font-weight: bold;
       line-height: 1.6;
-      
     }
     
     .image {
@@ -162,6 +165,7 @@ body {
       }
     }
   }
+
   .search-input-field {
     width: 95%;
     display: block;
@@ -184,6 +188,7 @@ body {
   .instruction {
     padding: 10px;
   }
+  
   .empty-meal-error-message {
     padding-top: 20px;
     @media screen and (min-width: $desktop) {
