@@ -4,17 +4,14 @@ import { RandomMeals } from "./RandomMeals";
 import { Provider } from "react-redux";
 import { store } from "../../Store";
 
-const setup = () => {
-    const utils = render(<Provider store={store}><RandomMeals/></Provider>);
-    const input = utils.getByLabelText("random-meals-button");
-    return {
-        input,
-        ...utils
-    }
-}
-
-test("It should check if input value is same as output", () => {
-    const { input, utils } = setup();
-    // fireEvent.click(utils, {value: "Get Random" });
-    // expect(input).toBe("random-meals-button-test")
-})
+test("It should check if function is being called by onClick", () => {
+    const mockFn = jest.fn(() => true);
+    const { getByTestId } = render(
+        <Provider store={store}>
+            <RandomMeals/>
+        </Provider>
+        );
+    const button = getByTestId("random-meals-button-test");
+    fireEvent.click(button);
+    expect(mockFn()).toBe(true);
+});
