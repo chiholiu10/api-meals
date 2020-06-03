@@ -14,7 +14,7 @@ When the repository has been cloned from the Github the following steps should b
 # Why React
 
 - React because of my experience with this library it makes me more productive, which is business-wise a profitable choice.
-- Backed by Facebook, so the community behind this library is huge which makes it easier for Developer to solve their problem and in the end more productive.
+- Backed by Facebook, so the community behind this library is huge which makes it easier for Developer to solve their problem and in the end be more productive.
 - Components that can be reused multiple times
 - Virtual DOM, so only the part that has changed will only be rerendered. Which garantees better user experience and higher app performance.
 - Size of this Single Page application is smaller than Angular
