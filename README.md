@@ -17,7 +17,7 @@ When the repository has been cloned from the Github the following
 - Backed by Facebook, so the community behind this library is huge which makes it easier for Developer to solve their problem and in the end more productive.
 - Components that can be reused multiple times
 - Virtual DOM, so only the part that has changed will only be rerendered. Which garantees better user experience and higher app performance.
-- Size of this Singe Page application is smaller than Angular
+- Size of this Single Page application is smaller than Angular
 - To understand React it is necessarily to have a deeper understanding of vanilla JavaScript. So it stimulates Developers to understand what really happens under the hood.
 - In comparison to Angular the learning curve of React is not that steep.
 
@@ -38,7 +38,7 @@ When the repository has been cloned from the Github the following
 # Random meal api
 
 Fetch the api and then create a button that will call this api call.
-When the api has been called, the component should cluster all the matching and exisiting key names with values and output that. In my perspective this part must be a reusable component so we can use this again for the second part of this app.
+When the api has been called, the component should cluster all the matching and existing key names with values and output that. In my perspective this part must be a reusable component so we can use this again for the second part of this app.
 
 # Search api
 First of all we need to fetch an api.
