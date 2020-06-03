@@ -13,7 +13,7 @@ const setup = () => {
     }
 }
 
-test("It should check if input value is same as output", () => {
+test("It should check if input value is same as out", () => {
     const { input } = setup()
     fireEvent.change(input, { target: { value: "search-bar-test" } })
     expect(input.value).toBe("search-bar-test")
