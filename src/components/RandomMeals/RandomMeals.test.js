@@ -14,7 +14,7 @@ const setup = () => {
 }
 
 test("It should check if input value is same as output", () => {
-    const { input } = setup()
-    fireEvent.change(input, { target: { value: "random-meals-button-test" } })
-    expect(input.value).toBe("random-meals-button-test")
+    const { input, utils } = setup();
+    // fireEvent.click(utils, {value: "Get Random" });
+    // expect(input).toBe("random-meals-button-test")
 })
