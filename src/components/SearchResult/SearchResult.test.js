@@ -8,7 +8,7 @@ import { screen } from "@testing-library/dom";
 import { fixedApi } from "../../mock/mockAPI";
 import { emptyApi } from "../../mock/emptyMockApi";
 
-test("It should check whether the button(s) exist", () => {
+test("It should check whether the buttons exist", () => {
     render(
         <Provider store={store}>
             <SearchResult ingredientButtons={fixedApi}/>
