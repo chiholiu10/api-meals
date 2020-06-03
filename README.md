@@ -37,7 +37,7 @@ When the repository has been cloned from the Github the following steps should b
 
 # Random meal api
 
-Fetch the api and then create a button that will call this api call.
+Fetch the api and then create a button that will call this api.
 When the api has been called, the component should cluster all the matching and existing key names with values and output that. In my perspective this part must be a reusable component so we can use this again for the second part of this app.
 
 # Search api
