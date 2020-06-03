@@ -4,7 +4,7 @@ import { RandomMeals } from "./RandomMeals";
 import { Provider } from "react-redux";
 import { store } from "../../Store";
 
-test("It should check if input value is same as output", () => {
+test("It should check if function is being called by onClick", () => {
     const mockFn = jest.fn(() => true);
     const { getByTestId } = render(
         <Provider store={store}>
