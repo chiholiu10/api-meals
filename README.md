@@ -18,7 +18,7 @@ When the repository has been cloned from the Github the following steps should b
 - Components that can be reused multiple times
 - Virtual DOM, so only the part that has changed will only be rerendered. Which garantees better user experience and higher app performance.
 - Size of this Single Page application is smaller than Angular
-- To understand React it is necessarily to have a deeper understanding of vanilla JavaScript. So it stimulates Developers to understand what really happens under the hood.
+- To understand React it is necessarily to have a deeper understanding of vanilla JavaScript. So it stimulates Developers to understand what really happens under the hood. This knowledge will also be useful when using other frameworks. 
 - In comparison to Angular the learning curve of React is not that steep.
 
 # Why Redux
