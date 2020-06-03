@@ -34,6 +34,7 @@ body {
     &.app-desktop-left {
       @media screen and (min-width: $desktop) {
         flex-basis: 20%;
+        min-height: 1000px;
       }
     }
     &.app-desktop-right {
@@ -108,13 +109,16 @@ body {
     &-default {
       border: none;
       text-align: left;
-      text-indent: 10px;
       color: $white;
       margin: 10px;
-      white-space: nowrap;
+      @media screen and (min-width: $desktop) {
+        padding-left: 10px;
+      }
       @media screen and (max-width: $mobile) {
         padding: 10px 0;
+        text-indent: 10px;
         border: 1px solid $white;
+        white-space: nowrap;
       }
    
       @media screen and (min-width: $desktop) {
