@@ -51,8 +51,6 @@ export const ListMeals = ({ showResultMeal }) => {
         ingredients: parsedIngredients
     };
 
-
-      
     const MenuInfo = {
         menuName: menu.name,
         menuImage: menu.image,
