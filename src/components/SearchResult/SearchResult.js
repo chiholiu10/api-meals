@@ -4,33 +4,32 @@ import { openIngredient } from "../../actions/index";
 import { connect } from "react-redux";
 
 export const SearchResult = ({ ingredientButtons }) => {
-    const dispatch = useDispatch();
+	const dispatch = useDispatch();
+	if(ingredientButtons === undefined) return;
+	const buttons = ingredientButtons;
 
-    const buttons = ingredientButtons;
-    if(buttons === undefined) return;
+	const allButtons = buttons.map((ingredientBtn, i) => {
+		if(ingredientBtn == null) {
+			return null;
+		}
+		return (
+			<div key={i} className="button-search-parent">
+				<div className="button-background-color button-default" onClick={() => dispatch(openIngredient(ingredientBtn))}>{ingredientBtn.strMeal}</div>
+			</div>
+		);
+	});
 
-    const allButtons = buttons.map((ingredientBtn, i) => {
-        if(ingredientBtn == null) {
-            return null;
-        }
-        return (
-            <div key={i} className="button-search-parent">
-                <div className="button-background-color button-default" onClick={() => dispatch(openIngredient(ingredientBtn))}>{ingredientBtn.strMeal}</div>
-            </div>
-        )
-    })
-
-    return (
-        <div>
-            {allButtons.length == 0 ? <div data-testid="search-result-buttons-empty"></div> : <div data-testid="search-result-buttons" className="button-search-container">{allButtons}</div>}
-        </div>
-    )
-}
+	return (
+		<div>
+			{allButtons.length == 0 ? <div data-testid="search-result-buttons-empty"></div> : <div data-testid="search-result-buttons" className="button-search-container">{allButtons}</div>}
+		</div>
+	);
+};
 
 const mapStateToProps = (state) => {
-    return {
-        ingredientButtons: state.getData.allSearchButtons || []
-    }
-}
+	return {
+		ingredientButtons: state.getData.allSearchButtons || []
+	};
+};
 
 export default connect(mapStateToProps, null)(SearchResult);
