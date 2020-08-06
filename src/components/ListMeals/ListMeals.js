@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import YouTube from "react-youtube";
 import { isEmpty } from "lodash";
+import PropTypes from 'prop-types';
 
 export const ListMeals = ({ showResultMeal }) => {
 	const meal = showResultMeal;
@@ -28,7 +29,7 @@ export const ListMeals = ({ showResultMeal }) => {
 
 				return `${value} ${ingredient}`;
 			}
-			return;
+
 		},
 		youtubeId: (key, value) => {
 			if (key.includes("strYoutube") && value !== "") {
@@ -36,7 +37,6 @@ export const ListMeals = ({ showResultMeal }) => {
 
 				return `${getYoutTubeId}`;
 			}
-			return;
 		}
 	};
 
@@ -53,8 +53,6 @@ export const ListMeals = ({ showResultMeal }) => {
 		ingredients: parsedIngredients
 	};
 
-
-      
 	const MenuInfo = {
 		menuName: menu.name,
 		menuImage: menu.image,
@@ -73,14 +71,14 @@ export const ListMeals = ({ showResultMeal }) => {
 				<p className="title">{MenuInfo.menuName}</p>
 				<img className="image" alt={MenuInfo.menuName} src={MenuInfo.menuImage}/>
 				<div className="ingredient-container-list content">
-					{ MenuInfo.ingredients == undefined ? "" : MenuInfo.ingredients.map((ingredients, i) => {
+					{ MenuInfo.ingredients === undefined ? "" : MenuInfo.ingredients.map((ingredients, i) => {
 						return (
 							<p className="ingredient-list" key={i}>{ingredients}</p>
 						);
 					})}
 				</div>
 				<p className="instruction content">{MenuInfo.menuInstruction}</p>
-				{MenuInfo.menuVideo == 0 ? "" : <YouTube videoId={MenuInfo.menuVideo} className="video"/>}
+				{MenuInfo.menuVideo === 0 ? "" : <YouTube videoId={MenuInfo.menuVideo} className="video"/>}
 			</div>
 		);
 	}
@@ -90,6 +88,10 @@ const mapStateToProps = (state) => {
 	return {
 		showResultMeal: state.getData.toggleResults === false ? (state.getData.randomMeals[0] || {}) : (state.getData.currentIngredient || {})        
 	};
+};
+
+ListMeals.propTypes = {
+	showResultMeal: PropTypes.any
 };
 
 export default connect(mapStateToProps, null)(ListMeals);

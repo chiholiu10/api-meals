@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { openIngredient } from "../../actions/index";
 import { connect } from "react-redux";
+import PropTypes from 'prop-types';
 
 export const SearchResult = ({ ingredientButtons }) => {
 	const dispatch = useDispatch();
@@ -30,6 +31,10 @@ const mapStateToProps = (state) => {
 	return {
 		ingredientButtons: state.getData.allSearchButtons || []
 	};
+};
+
+SearchResult.propTypes = {
+	ingredientButtons: PropTypes.array
 };
 
 export default connect(mapStateToProps, null)(SearchResult);

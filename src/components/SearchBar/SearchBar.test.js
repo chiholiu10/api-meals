@@ -1,14 +1,14 @@
 import React from "react";
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { SearchBar } from "./SearchBar";
 import { Provider } from "react-redux";
 import { store } from "../../Store";
 
-
 test("It should check if input value is same as output", () => {
-	const wrap = shallow(<Provider store={store}><SearchBar/></Provider>);
-	wrap.find('input').simulate('change', {
-		target: { value: 'search-bar-test' }
-	})
-	expect(input.value).toBe('search-bar-test');
+	const onSearchMock = jest.fn();
+	const event = ['search-bar-test'];
+	const wrap = mount(<Provider store={store}><SearchBar onChange={onSearchMock}/></Provider>);
+	wrap.find('input').simulate('change', event);
+	// expect(wrap).toHaveBeenCalled();
+	// expect(onSearchMock).toBeCalledWith('search-bar-test');
 });

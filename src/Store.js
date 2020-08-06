@@ -3,6 +3,6 @@ import getData from './reducers';
 import thunk from 'redux-thunk';
 
 export const store = createStore(
-    getData,
-    applyMiddleware(thunk)
+	getData,
+	applyMiddleware(thunk)
 );

@@ -1,34 +1,34 @@
+import { types } from '../actions/index';
 
 const initialState = {
-    randomMeals: [],
-    allSearchButtons: [],
-    toggleResults: false
+	randomMeals: [],
+	allSearchButtons: [],
+	toggleResults: false
 };
 
 export const getMealsData = (state = initialState, action) => {
-    switch (action.type) {
-        case "RANDOM_MEALS":
-            return {
-                ...state,
-                randomMeals: action.getMeals,
-                toggleResults: false
-            }
-        case "SEARCH_MEALS": 
-            const searchButtons = action.searchButtons == null ? [] : action.searchButtons;
-            return {
-                ...state,
-                allSearchButtons: searchButtons
-            }
-        case "SHOW_INGREDIENT": 
-            return {
-                ...state,
-                toggleResults: true,
-                currentIngredient: action.foldRecipe,
+	switch (action.type) {
+	case types.RANDOM_MEALS:
+		return {
+			...state,
+			randomMeals: action.getMeals,
+			toggleResults: false
+		};
+	case types.SEARCH_MEALS: 
+		return {
+			...state,
+			allSearchButtons: action.searchButtons == null ? [] : action.searchButtons
+		};
+	case types.SHOW_INGREDIENT: 
+		return {
+			...state,
+			toggleResults: true,
+			currentIngredient: action.foldRecipe,
               
-            }
-        default:
-            return state;
-    }
-}
+		};
+	default:
+		return state;
+	}
+};
 
 export default getMealsData;
