@@ -14,37 +14,37 @@ const Input = styled.input`
     text-transform: capitalize;
     margin-top: 20px;
     margin-bottom: 20px;
-`
+`;
 
 export const SearchBar = () => {
-    const dispatch = useDispatch();
+	const dispatch = useDispatch();
     
-    useEffect(() => {
-        fetchSearchResults()
-    })
+	useEffect(() => {
+		fetchSearchResults();
+	});
 
-    const getSearchValue = (e) => {
-        const searchResult = e.target.value.toLowerCase();
-        fetchSearchResults(searchResult);
-    }
+	const getSearchValue = (e) => {
+		const searchResult = e.target.value.toLowerCase();
+		fetchSearchResults(searchResult);
+	};
 
-    const fetchSearchResults = (query) => {
-        if(query == null) {
-            query = "";
-        }
-        const searchUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`;
+	const fetchSearchResults = (query) => {
+		if(query == null) {
+			query = "";
+		}
+		const searchUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`;
 
-        axios.get(searchUrl)
-        .then((res) => {
-            dispatch(generateSearchButtons(res.data.meals))
-        }).catch((err) => {
-            console.log(err);
-        })
-    }
+		axios.get(searchUrl)
+			.then((res) => {
+				dispatch(generateSearchButtons(res.data.meals));
+			}).catch((err) => {
+				console.log(err);
+			});
+	};
     
-    return (
-        <div>
-            <Input className="search-input-field" aria-label="search-bar" type="text" onChange={(e) => getSearchValue(e)} placeholder="Search Meal" />
-        </div>
-    )
-}
+	return (
+		<div>
+			<Input className="search-input-field" aria-label="search-bar" type="text" onChange={(e) => getSearchValue(e)} placeholder="Search Meal" />
+		</div>
+	);
+};

@@ -7,11 +7,11 @@ import { store } from "../../Store";
 import { screen } from "@testing-library/dom";
 
 test("It should check components exist", () => {
-    render(
-        <Provider store={store}>
-            <AppComponent/>
-        </Provider>
-    );
+	render(
+		<Provider store={store}>
+			<AppComponent/>
+		</Provider>
+	);
 
-    expect(screen.queryByTestId("app-component-test")).toBeTruthy()
+	expect(screen.queryByTestId("app-component-test")).toBeTruthy();
 });

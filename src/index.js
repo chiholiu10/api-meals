@@ -7,14 +7,14 @@ import thunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 
 export const store = createStore(
-    getData,
-    applyMiddleware(thunk)
+	getData,
+	applyMiddleware(thunk)
 );
 
 const ApiMeals = () => (
-    <Provider store={store}>
-        <App/>
-    </Provider>
-)
+	<Provider store={store}>
+		<App/>
+	</Provider>
+);
 
 ReactDOM.render(<ApiMeals/>, document.getElementById('root'));
