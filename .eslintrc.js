@@ -5,7 +5,8 @@ module.exports = {
 		"consistent-return": 2,
 		"react/jsx-indent": ["error", "tab"],
 		"semi"             : [1, "always"],
-		"no-mixed-spaces-and-tabs": 0
+        "no-mixed-spaces-and-tabs": 0,
+        "no-useless-escape": 0
 	},
 	"plugins": ['react'],
 	"parser": "babel-eslint",
